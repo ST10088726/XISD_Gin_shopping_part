@@ -1,22 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XISD_Gin_shopping.Models
 {
+    [Table("ShoppingCart")]
     public class ShoppingCart
-    {   
-        public ICollection<CartDetails> Items { get; set; }
-        public string Category { get; set; }
-
+    {
+        public int Id { get; set; }
         [Required]
         public string UserId { get; set; }
-        public bool isDeleted { get; set; } = false;
-        public string Name { get; set; }
-        public string Price { get; set; }
-        public string Quantity { get; set; }
-        public int Total { get; set; }
-        public ShoppingCart() 
-        { 
-            Items = new List<CartDetails>();
-        }
+        public bool IsDeleted { get; set; } = false;
+
+        public ICollection<CartDetails> CartDetail { get; set; }
     }
 }

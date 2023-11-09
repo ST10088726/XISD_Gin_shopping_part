@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using XISD_Gin_shopping.Models;
 
+
 namespace XISD_Gin_shopping.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -12,8 +13,7 @@ namespace XISD_Gin_shopping.Data
         {
         }
 
-        public DbSet<Stock> stocks {get;set;}
-        public DbSet<ShoppingCart> shop { get; set; }
+        public DbSet<Stock> stocks {get;set;}      
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<CartDetails> CartDetails { get; set; }
         public DbSet<Order> Orders { get; set; }

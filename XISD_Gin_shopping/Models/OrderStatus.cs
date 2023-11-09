@@ -11,6 +11,6 @@ namespace XISD_Gin_shopping.Models
         public string StatusId { get; set; }  
         [Required]
         [MaxLength(20)]
-        public string StatusName { get; set; }
+        public string ?StatusName { get; set; }
     }
 }

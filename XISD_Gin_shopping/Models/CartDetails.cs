@@ -1,17 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Build.Framework;
 
 namespace XISD_Gin_shopping.Models
 {
     [Table("CartDetail")]
     public class CartDetails
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string ShoppingCart_Id {get; set;}
+        public int ShoppingCartId {get; set;}
         [Required]
         public string StockId { get; set; }
-        public string Quantity { get; set; }
+        [Required]
+        public int Quantity { get; set; }
+        [Required]
+        public double UnitPrice { get; set; }
         public Stock Stock  { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
     }

@@ -16,7 +16,7 @@
                 <div class="card p-2 border-secondary mb-2">
                         <img src="img/@(item.ID+".jpeg")" class="card-img-top" height="250">
                     <div class="card-body p-1">
-                            <h4 class="card-title text-center text-info">@Html.DisplayFor(modelitem => item.Name)</h4>
+                            <h4 class="card-title text-center text-info">@Html.DisplayFor(modelitem => item.StockName)</h4>
                         <h5 class="card-text text-center text-danger"><i class="fa-sharp fa-solid fa-r fa-sm"></i>&nbsp;&nbsp;R @Html.DisplayFor(modelItem => item.Price)</h5>
 
                     </div>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>                               
                                 <input type="hidden" class="pid" value="@Html.DisplayFor(modelItem => item.ID)">
-                                <input type="hidden" class="pname" value="@Html.DisplayFor(modelIteml => item.Name)">
+                                <input type="hidden" class="pname" value="@Html.DisplayFor(modelIteml => item.StockName)">
                                 <input type="hidden" class="pprice" value="@Html.DisplayFor(modelItem => item.Price)">
                                 <input type="hidden" class="pimage" value="img/Ancient Alchemy Gin.jpeg">
                                 <input type="hidden" class="pdescrip" value="@Html.DisplayFor(modelItem => item.Description)">

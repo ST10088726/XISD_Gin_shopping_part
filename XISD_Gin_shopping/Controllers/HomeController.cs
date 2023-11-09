@@ -41,7 +41,7 @@ namespace XISD_Gin_shopping.Controllers
                 Category="1698315704965",
                 Description="BOTANICAL",
                 ID="1699103224821",
-                Name="JUNIPER CASCADE RESERVE",
+                StockName="JUNIPER CASCADE RESERVE",
                 Price="449",
                 Quantity="10" 
                  //Edit
@@ -110,7 +110,7 @@ namespace XISD_Gin_shopping.Controllers
                 Category="1698315704965",
                 Description="BOTANICAL",
                 ID="1699103224821",
-                Name="JUNIPER CASCADE RESERVE",
+                StockName="JUNIPER CASCADE RESERVE",
                 Price="449",
                 Quantity="10" //Edit
 
@@ -138,7 +138,7 @@ namespace XISD_Gin_shopping.Controllers
                         Currency = "zar",
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
-                            Name = item.Name.ToString(),
+                            Name = item.StockName.ToString(),
                         }
                     },
                     Quantity = Convert.ToInt32(item.Quantity),

@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XISD_Gin_shopping.Models
 {
+    [Table("Order")]
     public class Order
     {
         public string Id { get; set; }
