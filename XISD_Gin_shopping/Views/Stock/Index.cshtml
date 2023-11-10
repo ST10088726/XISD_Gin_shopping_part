@@ -1,4 +1,5 @@
-﻿@model IEnumerable<XISD_Gin_shopping.Models.Stock>
+﻿@* @model StockDisplayModel *@
+@model IEnumerable<XISD_Gin_shopping.Models.Stock>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,7 +36,7 @@
                                 <input type="hidden" class="pprice" value="@Html.DisplayFor(modelItem => item.Price)">
                                 <input type="hidden" class="pimage" value="img/Ancient Alchemy Gin.jpeg">
                                 <input type="hidden" class="pdescrip" value="@Html.DisplayFor(modelItem => item.Description)">
-                               <button class="btn btn-info btn-block addItemBtn">
+                               <button type="button" onclick="add(@item.ID)" class="btn btn-info btn-block addItemBtn">
                                 <i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add to
                                 cart
                             </button>
@@ -48,3 +49,29 @@
     </div>
 </div> 
 
+@section Scripts{
+    <script>
+        async function add(itemID) {
+            // var usernameEl = document.getElementById("username");
+            // if (usernameEl == null) {
+            //     window.location.href = "/Identity/Account/Login";
+            //     //var username=usernameEl.innerText;
+            //     //  if(username.length<1){
+            //     //      window.location.href="/Identity/Account/Login";
+            //     //  }
+            // }          
+            try {
+                var response = await fetch(`/Cart/AddItem?itemID=${itemID}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount";
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+}

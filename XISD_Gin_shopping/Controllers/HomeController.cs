@@ -14,14 +14,16 @@ namespace XISD_Gin_shopping.Controllers
     {
         private Stock tm = new Stock();
         private readonly ILogger<HomeController> _logger;
+        private readonly IHomeRepository _homeRepository;
         IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "de2ehPcqdy3rz32v5BPZJG3VCVF9b3ldkSsOrbhB",
             BasePath = "https://juniper-junction-distill-2b013-default-rtdb.firebaseio.com/"
         };
         IFirebaseClient client;
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IHomeRepository homeRepository)
         {
+            _homeRepository = homeRepository;
             _logger = logger;
         }
 

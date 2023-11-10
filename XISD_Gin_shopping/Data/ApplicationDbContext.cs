@@ -13,7 +13,8 @@ namespace XISD_Gin_shopping.Data
         {
         }
 
-        public DbSet<Stock> stocks {get;set;}      
+        public DbSet<Stock> stocks {get;set;}
+        public DbSet<Category> categories { get;set;}
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<CartDetails> CartDetails { get; set; }
         public DbSet<Order> Orders { get; set; }

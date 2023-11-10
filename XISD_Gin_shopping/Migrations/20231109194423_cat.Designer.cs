@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using XISD_Gin_shopping.Data;
 
@@ -11,9 +12,11 @@ using XISD_Gin_shopping.Data;
 namespace XISD_Gin_shopping.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231109194423_cat")]
+    partial class cat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,24 +253,6 @@ namespace XISD_Gin_shopping.Migrations
                     b.ToTable("CartDetail");
                 });
 
-            modelBuilder.Entity("XISD_Gin_shopping.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Category");
-                });
-
             modelBuilder.Entity("XISD_Gin_shopping.Models.Order", b =>
                 {
                     b.Property<string>("Id")
@@ -378,9 +363,6 @@ namespace XISD_Gin_shopping.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -398,8 +380,6 @@ namespace XISD_Gin_shopping.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Stock");
                 });
@@ -500,18 +480,6 @@ namespace XISD_Gin_shopping.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Stock");
-                });
-
-            modelBuilder.Entity("XISD_Gin_shopping.Models.Stock", b =>
-                {
-                    b.HasOne("XISD_Gin_shopping.Models.Category", null)
-                        .WithMany("Stocks")
-                        .HasForeignKey("CategoryId");
-                });
-
-            modelBuilder.Entity("XISD_Gin_shopping.Models.Category", b =>
-                {
-                    b.Navigation("Stocks");
                 });
 
             modelBuilder.Entity("XISD_Gin_shopping.Models.Order", b =>

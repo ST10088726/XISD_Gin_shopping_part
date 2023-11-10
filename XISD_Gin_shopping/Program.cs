@@ -2,6 +2,7 @@ using Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
+using XISD_Gin_shopping;
 using XISD_Gin_shopping.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IHomeRepository,HomeRepository>();
+builder.Services.AddTransient<ICartRepository,CartRepository>();
 
 var app = builder.Build();
 
